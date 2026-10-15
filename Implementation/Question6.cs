@@ -6,9 +6,10 @@ public class Question6
     {
         if(arr == null) return;
 
-        foreach(int item in arr)
+        for(int i = arr.Count - 1; i >= 0; i--)
         {
-            if(item % 2 != 0) arr.Remove(item);
+            int odd = (int)arr[i];
+            if(odd % 2 != 0) arr.Remove(odd);
         }
         foreach(int item in arr)
         {

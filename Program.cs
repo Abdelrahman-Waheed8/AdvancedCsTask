@@ -38,5 +38,11 @@ public class Program
 
         // Question 6 NOT FINISHED
         // Question6.RemoveOdd(new ArrayList{1,1,5,3,2});
+
+        // Question 7
+        // Question7.ReverseQueueUsingStack();
+
+        // Question 8
+        Question8.CheckBalance();
     }
 }
