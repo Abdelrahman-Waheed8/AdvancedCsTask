@@ -43,6 +43,39 @@ public class Program
         // Question7.ReverseQueueUsingStack();
 
         // Question 8
-        Question8.CheckBalance();
+        // Question8.CheckBalance();
+
+        // Question 9
+        // Question9.RunBubbleSort();
+
+        // Question 10 - 12
+        // FixedSizeList<int> list = new FixedSizeList<int>(3);
+        // FixedSizeList<int>.Run();
+
+        // Question 13 - 15
+    }
+
+    public static void RunDelegate()
+    {
+        List<Book> books = new List<Book>
+        {
+            new Book("ISBN-1", "Book title 1", new string[] {"Ahmed", "Abdullah"}, new DateTime(2026,2,3), 100.0m),
+            new Book("ISBN-2", "Book title 2", new string[] {"Abdelrahman", "Mohammed"}, new DateTime(2020,5,25), 175.0m)
+        };
+
+        Console.WriteLine("Checking delegate with same signature to get authors -----------------");
+        LibraryEngine.ProcessBooks(books, BookFunctions.GetAuthors);
+
+        Console.WriteLine("Checking built in delegate to get Prices -----------------");
+        LibraryEngine.ProcessBooksUsingBuiltIn(books, BookFunctions.GetPrices);
+
+        Console.WriteLine("Using Anonymous method to get ISBN -----------------");
+        LibraryEngine.ProcessBooks(books, delegate(Book b)
+        {
+            return b.ISBN;
+        });
+
+        Console.WriteLine("Using Lambda Expression to get publication date -----------------");
+        LibraryEngine.ProcessBooks(books, (Book b) => b.PublicationDate.ToString());
     }
 }
