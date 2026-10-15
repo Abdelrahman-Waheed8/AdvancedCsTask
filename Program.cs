@@ -108,12 +108,6 @@ public class Program
                 RunDelegate();
                 break;
         }
-
-        // Question 10 - 12
-        // FixedSizeList<int> list = new FixedSizeList<int>(3);
-        // FixedSizeList<int>.Run();
-
-        // Question 13 - 15
     }
 
     public static void RunDelegate()
