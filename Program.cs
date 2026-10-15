@@ -30,7 +30,10 @@ public class Program
         {
             case 1: 
                 ArrayList arrayList = new ArrayList() {5,25,10,30};
-                Console.WriteLine($"Array list after reverse: {string.Join(", ", Question1.ReverseArrayList(arrayList))}");
+                foreach(var item in Question1.ReverseArrayList(arrayList))
+                {
+                    Console.WriteLine(item);
+                }
                 break;
             case 2:
                 List<int> numbers = new List<int> {4,3,1,9,8,6};
@@ -40,7 +43,8 @@ public class Program
                 Question3.Run();
                 break;
             case 4:
-                Question4.isPalindrome();
+                if(Question4.isPalindrome()) Console.WriteLine("Palindrome");
+                else Console.WriteLine("Not Palindrome");
                 break;
             case 5: 
                 Question5.Run();
