@@ -4,6 +4,7 @@ public class Range<T> where T : IComparable<T>
     public T _max;
     public Range(T min, T max)
     {
+        if(min.CompareTo(max) >= 0) throw new Exception("Min cannot be greater than Max");
         _min = min;
         _max = max;
     }

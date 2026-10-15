@@ -3,50 +3,107 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // QUESTION 1
-        // ArrayList arrayList = new ArrayList();
-        // arrayList = Question1.ReverseArrayList(new ArrayList{1,2,3,4});
-        // foreach(var item in arrayList)
-        // {
-        //     Console.WriteLine(item);
-        // }
+        int choice;
+        Console.WriteLine("============================================================");
+        Console.WriteLine("                       Advanced C# Tasks                    ");
+        Console.WriteLine("============================================================");
+        Console.WriteLine("1] Reverse Array List");
+        Console.WriteLine("2] Even in a new list");
+        Console.WriteLine("3] Items greater than number in array");
+        Console.WriteLine("4] Check array is Palindrome");
+        Console.WriteLine("5] Remove duplicates from array");
+        Console.WriteLine("6] Remove odd from list");
+        Console.WriteLine("7] Reverse Queue using stack");
+        Console.WriteLine("8] Check balance of a string of parantheses using stack");
+        Console.WriteLine("9] Bubble sort optimization");
+        Console.WriteLine("10] FixedSizedList<T>");
+        Console.WriteLine("11] Range<T>");
+        Console.WriteLine("12] Delegates");
+        Console.Write("Enter your choice: ");
 
-        // QUESTION 2
-        // List<int> numbers = new List<int> {1,2,3,4,5,6};
-        // List<int> even = new List<int>();
-        // even = Question2.EvenInList(numbers);
-        // foreach(var item in even)
-        // {
-        //     Console.WriteLine(item);
-        // }
+        while(!int.TryParse(Console.ReadLine(), out choice) || choice > 12 || choice < 1)
+        {
+            Console.Write("Invalid input choice must be betweeb 1 and 12: ");
+        }
 
-        //Question 3
-        // Question3.Run();
+        switch(choice)
+        {
+            case 1: 
+                ArrayList arrayList = new ArrayList() {5,25,10,30};
+                Console.WriteLine($"Array list after reverse: {string.Join(", ", Question1.ReverseArrayList(arrayList))}");
+                break;
+            case 2:
+                List<int> numbers = new List<int> {4,3,1,9,8,6};
+                Console.WriteLine($"List after finding even: {string.Join(", ", Question2.EvenInList(numbers))}");
+                break;
+            case 3:
+                Question3.Run();
+                break;
+            case 4:
+                Question4.isPalindrome();
+                break;
+            case 5: 
+                Question5.Run();
+                break;
+            case 6:
+                ArrayList arr = new ArrayList() {5,25,12,22,6};
+                Question6.RemoveOdd(arr);
+                break;
+            case 7:
+                Question7.ReverseQueueUsingStack();
+                break;
+            case 8:
+                Question8.CheckBalance();
+                break;
+            case 9:
+                Question9.RunBubbleSort();
+                break;
+            case 10:
+                FixedSizeList<int> list = new FixedSizeList<int>(4);
+                Console.WriteLine("Capacity of fixed list: "+ list._capacity);
+                list.Add(10);
+                list.Add(20);
+                list.Add(30);
+                list.Add(40);
 
-        //Question 4
-        // if(Question4.isPalindrome())
-        // {
-        //     Console.WriteLine("Palindrome");
-        // }
-        // else
-        // {
-        //     Console.WriteLine("Not Palindrome");
-        // }
+                Console.WriteLine($"Element at index 0: {list.GetAt(0)}");
+                Console.WriteLine($"Element at index 1: {list[1]}");
+                Console.WriteLine("Trying to access index 4 ");
+                try
+                {
+                    Console.WriteLine($"Element at index 4: {list[4]}");
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
 
-        // Question 5
-        // Question5.Run();
+                Console.WriteLine("Trying to add another element");
+                try
+                {
+                    list.Add(50);
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                break;
+            case 11:
+                Range<int> range = new Range<int>(20, 50); 
+                Console.WriteLine($"Is 30 in range: {range.IsInRange(30)}");
+                Console.WriteLine($"Is 60 in range: {range.IsInRange(60)}");
+                Console.WriteLine($"Length: {range.Length()}");
 
-        // Question 6 NOT FINISHED
-        // Question6.RemoveOdd(new ArrayList{1,1,5,3,2});
-
-        // Question 7
-        // Question7.ReverseQueueUsingStack();
-
-        // Question 8
-        // Question8.CheckBalance();
-
-        // Question 9
-        // Question9.RunBubbleSort();
+                try
+                {
+                    Range<int> range1 = new Range<int>(30,10);
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                break;
+            case 12:
+                RunDelegate();
+                break;
+        }
 
         // Question 10 - 12
         // FixedSizeList<int> list = new FixedSizeList<int>(3);
