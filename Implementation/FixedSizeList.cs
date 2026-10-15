@@ -38,45 +38,4 @@ public class FixedSizeList<T>
             list[index] = value;
         }
     }
-
-    public static void Run()
-    {
-        Console.Write("Enter Fixed Size List capacity: ");
-        int cap;
-
-        while(!int.TryParse(Console.ReadLine(), out cap))
-        {
-            Console.Write("Invalid input Enter Fixed Size List capacity: ");
-        }
-
-        FixedSizeList<int> list = new FixedSizeList<int>(cap);
-        Console.WriteLine("Created fixed size list with capacity of: " + cap);
-
-        Console.WriteLine("Enter Fixed size list elements: ");
-        for(int i = 0; i < cap; i++)
-        {
-            Console.Write($"Enter item {i+1}: ");
-            int item;
-            while(!int.TryParse(Console.ReadLine(), out item))
-            {
-                Console.Write("Enter valid item: ");
-            }
-            list.Add(item);
-        }
-
-        Console.WriteLine("Inputted elements: ");
-        for(int i = 0; i < cap; i++)
-        {
-            Console.WriteLine(list[i]);
-        }
-
-        try
-        {
-            list.Add(15);
-        }
-        catch(Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-    }
 }
